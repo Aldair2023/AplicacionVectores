@@ -17,6 +17,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
+    
+    double v[];
     public Principal() {
         initComponents();
     }
@@ -80,12 +82,22 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 20, 130, -1));
 
         txtLlenarManual.setText("Llenar Manual");
+        txtLlenarManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLlenarManualActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtLlenarManual, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 130, -1));
 
         txtLlevaAuto.setText("Llena Auto");
         jPanel3.add(txtLlevaAuto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 130, -1));
 
         txtMostrar.setText("Mostrar");
+        txtMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMostrarActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 130, -1));
 
         txtBorrar.setText("Borrar");
@@ -120,6 +132,8 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
+        int longitud;
+        
         if(txtLongitud.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(null,"digite la longitud ","ERROR",JOptionPane.WARNING_MESSAGE);
             txtLongitud.requestFocusInWindow();
@@ -128,6 +142,11 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"la longitud no puede ser cero ","ERROR",JOptionPane.WARNING_MESSAGE);
             txtLongitud.requestFocusInWindow();
             txtLongitud.selectAll();
+        }else{
+            
+           longitud=Integer.parseInt(txtLongitud.getText().trim());
+            v =new double [longitud];
+            JOptionPane.showMessageDialog(null,"vector creado exitosamente");
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
 
@@ -138,6 +157,22 @@ public class Principal extends javax.swing.JFrame {
               evt.consume(); 
           }
     }//GEN-LAST:event_txtLongitudKeyTyped
+
+    private void txtLlenarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLlenarManualActionPerformed
+        double n;
+        for (int i = 0; i < v.length; i++) {
+          n =Double.parseDouble(JOptionPane.showInputDialog("DIGITE EL NUMERO EN LA POSICION",+i));
+          v[i]=n;  
+          
+        }
+    }//GEN-LAST:event_txtLlenarManualActionPerformed
+
+    private void txtMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMostrarActionPerformed
+        for (int i = 0; i < v.length; i++) {
+            txtResultado.append(v[i]+"\n");
+            
+        }
+    }//GEN-LAST:event_txtMostrarActionPerformed
 
     /**
      * @param args the command line arguments
