@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package interfaz;
 
 import javax.swing.JOptionPane;
@@ -17,8 +16,8 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-    
     double v[];
+
     public Principal() {
         initComponents();
     }
@@ -133,45 +132,45 @@ public class Principal extends javax.swing.JFrame {
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
         int longitud;
-        
-        if(txtLongitud.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(null,"digite la longitud ","ERROR",JOptionPane.WARNING_MESSAGE);
+
+        if (txtLongitud.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "digite la longitud ", "ERROR", JOptionPane.WARNING_MESSAGE);
             txtLongitud.requestFocusInWindow();
-            
-        }else if(Integer.parseInt(txtLongitud.getText().trim())==0){
-            JOptionPane.showMessageDialog(null,"la longitud no puede ser cero ","ERROR",JOptionPane.WARNING_MESSAGE);
+        } else if (Integer.parseInt(txtLongitud.getText().trim()) == 0) {
+            JOptionPane.showMessageDialog(null, "la longitud no puede ser cero ", "ERROR", JOptionPane.WARNING_MESSAGE);
             txtLongitud.requestFocusInWindow();
             txtLongitud.selectAll();
-        }else{
-            
-           longitud=Integer.parseInt(txtLongitud.getText().trim());
-            v =new double [longitud];
-            JOptionPane.showMessageDialog(null,"vector creado exitosamente");
+        } else {
+
+            longitud = Integer.parseInt(txtLongitud.getText().trim());
+            v = new double[longitud];
+            JOptionPane.showMessageDialog(null, "vector creado exitosamente");
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
 
     private void txtLongitudKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLongitudKeyTyped
-        char c=evt.getKeyChar(); 
-          if(!Character.isDigit(c)) { 
-              getToolkit().beep(); 
-              evt.consume(); 
-          }
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }//GEN-LAST:event_txtLongitudKeyTyped
 
     private void txtLlenarManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLlenarManualActionPerformed
         double n;
         for (int i = 0; i < v.length; i++) {
-          n =Double.parseDouble(JOptionPane.showInputDialog("DIGITE EL NUMERO EN LA POSICION",+i));
-          v[i]=n;  
-          
+            n = Double.parseDouble(JOptionPane.showInputDialog("DIGITE EL NUMERO EN LA POSICION", +i));
+            v[i] = n;
+
         }
     }//GEN-LAST:event_txtLlenarManualActionPerformed
 
     private void txtMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMostrarActionPerformed
         for (int i = 0; i < v.length; i++) {
-            txtResultado.append(v[i]+"\n");
-            
+            txtResultado.append(v[i] + "\n");
+
         }
+        
     }//GEN-LAST:event_txtMostrarActionPerformed
 
     /**
